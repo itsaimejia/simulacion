@@ -1,0 +1,10 @@
+Xn+1=aXn mod c 
+
+Xo= 3724
+
+a= 8t +/- 3
+c= 2^d
+
+1) con el valor de t sustituimos en la formula <<8t +/- 3>> para saber "a"
+2) sabiendo a y c sustituimos en Xn+1=aXn mod c 
+3) para saber los valores siguientes 

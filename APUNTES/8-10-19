@@ -1,0 +1,74 @@
+Una cadena de supermercados es abastecida por un almacen central.
+La mercancia llega a este almacen durante la noche. El personal
+encargado de descargar la mercancia (3 personas) trabajan un turno de 8 hrs
+(11pm a 7:30 am). Ellos tienen programada su comida de 3 am a 3:30 am.
+El salario x hora es de $25 dlls/hora. El almacen sólo recibe mercancia de 11pm a 7:30 am;
+en caso de requrirse tiempo extra, se pagará $37.50 dlls/hora. Se estima que el
+costo de espera de un camión es de $100/hora y para que el almacen este operando,
+de $500/hora
+Se sabe que (al momento de abrir)
+
+Cant camiones | Probabilidad
+0             |  0.50
+1             |  0.25
+2             |  0.15
+3             |  0.10
+-------------------------------
+tiempo de llegadas
+minutos     |   probabilidad
+20          |   0.02
+25          |   0.08
+30          |   0.12
+35          |   0.25
+40          |   0.20
+45          |   0.15
+50          |   0.10
+55          |   0.05
+60          |   0.03
+-----------------------------
+
+Por ultimo, el tiempo de servicio se ha estimado como
+
+Tiempo servicio
+-------------------------------
+3 personas  |   Prob    |4 personas |   Prob    |5 personas |   prob    |6 personas |   prob
+20          |   0.05    |15         |   0.05    |10         |   0.10    |5          |   0.12
+25          |   0.10    |20         |   0.15    |15         |   0.18    |10         |   0.15
+30          |   0.20    |25         |   0.20    |20         |   0.22    |15         |   0.26
+35          |   0.25    |30         |   0.20    |25         |   0.18    |20         |   0.15
+40          |   0.12    |35         |   0.15    |30         |   0.10    |25         |   0.12
+45          |   0.10    |40         |   0.12    |35         |   0.08    |30         |   0.08
+50          |   0.08    |45         |   0.08    |40         |   0.06    |35         |   0.06
+55          |   0.06    |50         |   0.04    |45         |   0.05    |40         |   0.04
+60          |   0.04    |55         |   0.01    |50         |   0.03    |45         |   0.02
+
+Caracteristicas:
+1.- 11:00 PM
+2.- ¿Cuantos camiones en espera?
+    Cant camiones:
+Cant camiones | Probabilidad
+0             |  0.50
+1             |  0.25
+2             |  0.15
+3             |  0.10
+-------------------------------------
+Camiones llegaron
+   0 -> 0.50  | 0
+0.51 -> 0.75  | 1
+0.76 -> 0.90  | 2
+0.91 -> 1.00  | 3
+3.- ¿Cuando se espera llegue el siguiente camion?
+
+Para el tiempo de llegada
+Dependiendo si es para 3,4,5 o 6 personas (tabla tiempo servicio)
+
+Nota: generar 4 aleatorios
+RND1: revisa el rango para tiempo entre llegadas (tabla tiempo de llegadas)
+RND2: CUANTOS CAMIONES LLEGARON (tabla camiones llegaron)
+RND3: TIEMPO DE SERVICIO (tabla tiempo servicio dependiendo para cuantas personas<<rango>>)
+
+
+
+RESUMEN SISTEMA FILAS
+
+1.- Hora inicial 11:00 pm
