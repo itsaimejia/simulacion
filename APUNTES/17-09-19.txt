@@ -1,5 +1,0 @@
-Pasos
-
-1) suma de probabilidades
-2) Transponer tabla 
-3) crear intervalos 
