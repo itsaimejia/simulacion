@@ -49,33 +49,49 @@ class validador:
 
 		validador.valida(self)
 
+	"""
+	metodo primeroCuatro(numero)
+	numero: cantidad a modificar
+	return: numero de 4 digitos generado en base a algoritmo
+	"""
 	def primerosCuatro(numero):
-		while(numero>9999):
-			numero=numero/10
-		return int(numero)
-
-	def aleatorio(self,semilla,limite):
-		xn=semilla
+		while(numero>9999): #mientras el numero pasado por parametro sea mayor a 9999
+			numero=numero//10 #quita el ultimo digito del numero ingresado 
+		return numero 
+	"""
+	metodo aleatorio(self, semilla, limite)
+	self: objeto de la clase 
+	xn: semilla para aplicar la formula
+	limite: numero de iteraciones que se aplicara la formula
+	return: los primeros 4 digitod del resultado
+	"""	
+	def aleatorio(self,xn,limite):
+		#aplicacion del algotirmo xi=(a*xn)mod(m)
 		for x in range(0,limite):
 			xi=(self.a*xn)%self.m
-			xn=xi
-		return validador.primerosCuatro(xn)
+			xn=xi 
+		return validador.primerosCuatro(xn) 
 
+	"""
+	metodo generadorTarjeta(self)
+	self: objeto de la clase
+	return: la tarjeta generada
+	"""
 	def generadorTarjeta(self):
 
 		#iteraciones
-		n1=self.semilla//1000
-		aux=self.semilla%1000
-		n2=aux//100
-		aux=aux%100
-		n3=aux%10
+		n1=self.semilla//1000 # extrae el primero numero de la semilla
+		aux=self.semilla%1000 # guarda los 3 numeros despues del primero
+		n2=aux//100 # extrae el segundo numero de la semilla
+		aux=aux%100 # guarda los 2 numeros despues del segundo
+		n3=aux%10   # extrae el cuarto numero de la semilla
 
 		#lista de numeros
-		#numero 1
+		#numero 1: se usa la semilla inicial
 		digito2=validador.aleatorio(self,self.semilla,n1)
-		#numero 2
+		#numero 2: se usa como semilla el numero anterior
 		digito3=validador.aleatorio(self,digito2,n2)
-		#numero 3
+		#numero 3: se usa como semilla el numero anterior
 		digito4=validador.aleatorio(self,digito3,n3)
 
 		return str("{0}-{1}-{2}-{3}".format(self.semilla,digito2,digito3,digito4))
