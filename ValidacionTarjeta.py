@@ -42,7 +42,7 @@ class validador:
 					programa le muestra al usuario el resultado de su validez
 					y genera una nueva tarjeta para el cliente independiente si es valida o no
 					''')
-				parser.add_argument('-T','--tarjea', help='Numero de tarjeta a validar', required=True)
+				parser.add_argument('-T','--tarjeta', help='Numero de tarjeta a validar', required=True)
 				args=parser.parse_args()
 			elif opt in ("-T","--tarjeta"):
 				self.tarjetaIngresada=arg
