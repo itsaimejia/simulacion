@@ -51,6 +51,9 @@ class validador:
 
 	"""
 	metodo primeroCuatro(numero)
+	el numero en ingresa como parametro es el resultado del metodo
+	aleatrorio() deja unicamente los primeros 4 digitos del resultado
+
 	numero: cantidad a modificar
 	return: numero de 4 digitos generado en base a algoritmo
 	"""
@@ -60,10 +63,13 @@ class validador:
 		return numero 
 	"""
 	metodo aleatorio(self, semilla, limite)
+	genera un numero aleatorio en base a una semilla, valor a, valor m
+	y numero de iteraciones, devuelve 4 digitos 
+
 	self: objeto de la clase 
 	xn: semilla para aplicar la formula
 	limite: numero de iteraciones que se aplicara la formula
-	return: los primeros 4 digitod del resultado
+	return: los primeros 4 digitos del resultado
 	"""	
 	def aleatorio(self,xn,limite):
 		#aplicacion del algotirmo xi=(a*xn)mod(m)
@@ -74,6 +80,10 @@ class validador:
 
 	"""
 	metodo generadorTarjeta(self)
+	genera una tarjeta de 16 digitos
+	los devuelve en conjunto de 4 en 4 digitos
+	1234-5678-1234-5678 (ejemplo)
+
 	self: objeto de la clase
 	return: la tarjeta generada
 	"""
@@ -95,7 +105,17 @@ class validador:
 		digito4=validador.aleatorio(self,digito3,n3)
 
 		return str("{0}-{1}-{2}-{3}".format(self.semilla,digito2,digito3,digito4))
+	"""
+	metodo valida(self)
+	-realiza la validacion de la tarjeta generada con el metodo generadorTarjeta()
+	compara el resultado con la tarjeta ingresada por script en consola
+	-asigna valor 1 (valida) o 0 (no es valida) al atributo de la clase "esValida"
+	-reasigna el valor del atributo "semilla" de la clase
+	-asigna al atributo "nuevaTarjeta" el valor obtenido del metodo generadoTarjeta()
+	con el nuevo valor asignado al atributo "semilla"
 
+	self: objeto de la clase
+	"""
 	def valida(self):
 		self.tarjetaGenerada=validador.generadorTarjeta(self)
 		self.esValida = 1 if(self.tarjetaGenerada==self.tarjetaIngresada) else 0
