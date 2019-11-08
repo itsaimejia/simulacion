@@ -94,7 +94,7 @@ if x.esValida==1:
 	print("La tarjeta es valida")
 	print("Por seguridad, su nuevo numero de tarjeta: %s"%x.nuevaTarjeta)
 else:
-	print("La tarjeta ha sido clonada")
+	print("El numero de tarjeta proporcionado no es de una tarjeta real")
 	print("La tarjeta real es: %s"%x.tarjetaGenerada)
 	print("La que se ingreso es: %s"%x.tarjetaIngresada)
 	print("Los numeros presentan incongruencias")
