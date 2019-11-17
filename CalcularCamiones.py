@@ -76,16 +76,17 @@ class empresa:
 	def calcula(self):
 		camiones=[]
 		xn=self.semilla
-
+		produccionExtra=0
 		for i in range(0,self.anios):
 			for i in range(0,250):
 				xi=(self.a*xn)%self.m
 				xn=xi
 				random=Decimal(xi)/self.m
 				camiones.append(empresa.produccion(random)//empresa.capacidad(random))
-		
-		self.camionesOptimos=sum(camiones)//len(camiones)
+				produccionExtra+=1 if empresa.produccion(random)%empresa.capacidad(random)>1 else 0
+		camionesExtra=((produccionExtra/self.anios)*100)//100000
+		self.camionesOptimos=(sum(camiones)//len(camiones))+camionesExtra
 
 
 x=empresa(sys.argv[1:])
-print("En base a {} anios la cantidad optima de camiones que debe adquirir la empresa es de: {}".format(x.anios,x.camionesOptimos))
+print("En base a la prueba de {} anios la cantidad optima de camiones que debe adquirir la empresa es de: {}".format(x.anios,x.camionesOptimos))
