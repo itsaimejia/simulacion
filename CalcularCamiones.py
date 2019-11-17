@@ -56,20 +56,20 @@ class empresa:
 
 		empresa.calcula(self)
 
-	def produccion(random):
+	def produccion(rnd):
 		return ( 
-			random.uniform(50,55) if random <=0.10 else
-			random.uniform(55,60) if random <=0.25 else
-			random.uniform(60,65) if random <=0.55 else
-			random.uniform(65,75) if random <=0.90 else
-			random.uniform(75,80) if random <=0.98 else
+			random.uniform(50,55) if rnd <=0.10 else
+			random.uniform(55,60) if rnd <=0.25 else
+			random.uniform(60,65) if rnd <=0.55 else
+			random.uniform(65,75) if rnd <=0.90 else
+			random.uniform(75,80) if rnd <=0.98 else
 			random.uniform(80,85)
 			)
-	def capacidad(random):
+	def capacidad(rnd):
 		return (
-			random.uniform(4,4.5) if random <= 0.30 else
-			random.uniform(4.5,5) if random <= 0.70 else
-			random.uniform(5,5.5) if random <= 0.90 else
+			random.uniform(4,4.5) if rnd <= 0.30 else
+			random.uniform(4.5,5) if rnd <= 0.70 else
+			random.uniform(5,5.5) if rnd <= 0.90 else
 			random.uniform(5.5,6)
 			)
 		
@@ -81,9 +81,9 @@ class empresa:
 			for i in range(0,250):
 				xi=(self.a*xn)%self.m
 				xn=xi
-				random=Decimal(xi)/self.m
-				camiones.append(empresa.produccion(random)//empresa.capacidad(random))
-				produccionExtra+=1 if empresa.produccion(random)%empresa.capacidad(random)>1 else 0
+				rnd=Decimal(xi)/self.m
+				camiones.append(empresa.produccion(rnd)//empresa.capacidad(rnd))
+				produccionExtra+=1 if empresa.produccion(rnd)%empresa.capacidad(rnd)>1 else 0
 		camionesExtra=((produccionExtra/self.anios)*100)//100000
 		self.camionesOptimos=(sum(camiones)//len(camiones))+camionesExtra
 
