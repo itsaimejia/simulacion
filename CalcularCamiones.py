@@ -14,7 +14,7 @@
 #llamado a liberias
 from decimal import *
 import sys, getopt, argparse
-
+import random 
 
 
 
@@ -58,19 +58,19 @@ class empresa:
 
 	def produccion(random):
 		return ( 
-			(50+55)/2 if random <=0.10 else
-			(55+60)/2 if random <=0.25 else
-			(60+65)/2 if random <=0.55 else
-			(65+75)/2 if random <=0.90 else
-			(75+80)/2 if random <=0.98 else
-			(80+85)/2
+			random.uniform(50,55) if random <=0.10 else
+			random.uniform(55,60) if random <=0.25 else
+			random.uniform(60,65) if random <=0.55 else
+			random.uniform(65,75) if random <=0.90 else
+			random.uniform(75,80) if random <=0.98 else
+			random.uniform(80,85)
 			)
 	def capacidad(random):
 		return (
-			(4+4.5)/2 if random <= 0.30 else
-			(4.5+5)/2 if random <= 0.70 else
-			(5+5.5)/2 if random <= 0.90 else
-			(5.5+6)/2
+			random.uniform(4,4.5) if random <= 0.30 else
+			random.uniform(4.5,5) if random <= 0.70 else
+			random.uniform(5,5.5) if random <= 0.90 else
+			random.uniform(5.5,6)
 			)
 		
 	def calcula(self):
