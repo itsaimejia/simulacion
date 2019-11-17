@@ -27,10 +27,10 @@ class empresa:
 		self.bandera=1
 		self.d=23
 		try:
-			opts,args=getopt.getopt(self.datos,"hD:",["help","dias="])
+			opts,args=getopt.getopt(self.datos,"hA:",["help","anios="])
 		except getopt.error:
 			print ('Modo de ejecutar el codigo:')
-			print ('CalcularCamiones.py -D <dias> ')
+			print ('CalcularCamiones.py -A <anios> ')
 			print ('   ')
 			print ('Escriba solamente CalcularCamiones.py -h para mayor informacion ')
 			sys.exit(2)
@@ -39,17 +39,17 @@ class empresa:
 				parser=argparse.ArgumentParser(description='''
 					El programa permite determinar la cantidad optima de camiones que la empresa debe 
 					adquirir para poder transportar la mercancia desde el area de produccion hasta
-					el almacen. El calculo se estima en base a los dias que la empresa trabaja en el anio
-					ya que son los camiones que se necesitaran en este lapso 
+					el almacen. Se hace el calculo por anios, el usuario ingresa cuantos anios desea
+					calcular
 					Se utiliza el metodo de generacion de pseudonumeros aleatorios para el calculo
 					''', epilog='''
 					Al termino de la ejecucion el programa proporciona la cantidad de los camiones
 					optimos que la empresa debe adquirir
 					''')
-				parser.add_argument('-D','--dias', help='Dias del anio que la empresa trabaja', required=True)
+				parser.add_argument('-A','--anios', help='Anios a evaluar', required=True)
 				args=parser.parse_args()
-			elif opt in ("-D","--dias"):
-				self.dias=int(arg)
+			elif opt in ("-A","--anios"):
+				self.anios=int(arg)
 
 		self.a=8*self.t+(self.bandera*3)
 		self.m=2**self.d
@@ -77,13 +77,15 @@ class empresa:
 		camiones=[]
 		xn=self.semilla
 
-		for i in range(0,self.dias):
-			xi=(self.a*xn)%self.m
-			xn=xi
-			random=Decimal(xi)/self.m
-			camiones.append(empresa.produccion(random)//empresa.capacidad(random))
-		self.camionesOptimos=sum(camiones)//self.dias
+		for i in range(0,self.anios):
+			for i in range(0,250):
+				xi=(self.a*xn)%self.m
+				xn=xi
+				random=Decimal(xi)/self.m
+				camiones.append(empresa.produccion(random)//empresa.capacidad(random))
+		
+		self.camionesOptimos=sum(camiones)//len(camiones)
 
 
 x=empresa(sys.argv[1:])
-print("Camiones optimos que debe adquirir la empresa: {}".format(x.camionesOptimos))
+print("En base a {} anios la cantidad optima de camiones que debe adquirir la empresa es de: {}".format(x.anios,x.camionesOptimos))
