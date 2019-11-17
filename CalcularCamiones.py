@@ -1,7 +1,9 @@
 #! /usr/bin/python
 #-*- coding:utf-8 -*-
 #
-#
+#Calculo de los camiones optimos que necesita una empresa
+#adquirir para poder solventar la necesidad de 
+#transporte de su produccion a un almacen situado a 30 km
 #
 #
 #Itsai Mejia
