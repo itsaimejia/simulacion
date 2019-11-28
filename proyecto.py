@@ -152,7 +152,7 @@ class maquinas:
         self.maquina3porMes=gMaquina3/12
 
         self.maquina4porSemana=gMaquina4/self.semanas
-        self.maquina4porMes=gMaquina1/12
+        self.maquina4porMes=gMaquina4/12
 
 
 
