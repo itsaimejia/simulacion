@@ -36,9 +36,13 @@ class maquinas:
         for opt, arg in opts:
             if opt in ("-h", "--help"):
                 parser = argparse.ArgumentParser(description='''
-                    descripcion
+                    El programa permite determinar un aproximado de las ganancias totales
+		    por semanas, y en caso de ser multiplos de 52 dara un aproximado de las
+		    ganacias mensuales. Las ganancis de las maquinas estan determinadas base
+		    a las observaciones que se hicieron sobre las cantidades compradas de los
+		    alumnos a traves de un determinado tiempo.
 					''', epilog='''
-                    epilogo
+                    El resultado estara en terminos de promedios semanales y mensuales.
 					''')
                 parser.add_argument('-s', '--semanas', help='Semanas que se evaluaran',
                                     required=True)
